@@ -1,5 +1,5 @@
 // frontend/src/api.js
-const API_BASE = '/api';
+const API_BASE = import.meta.env.VITE_API_BASE || '/api';
 
 export async function fetchInitialPlan(userId = null) {
   const url = userId ? `${API_BASE}/itinerary/initial?user_id=${userId}` : `${API_BASE}/itinerary/initial`;
