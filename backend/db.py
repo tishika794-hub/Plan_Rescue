@@ -5,7 +5,11 @@ import json
 import os
 from typing import Optional, Dict, Any, List
 
-DB_PATH = os.path.join(os.path.dirname(__file__), "plan_rescue.db")
+# Support writable /tmp directory on Vercel Serverless environment
+if os.environ.get("VERCEL"):
+    DB_PATH = "/tmp/plan_rescue.db"
+else:
+    DB_PATH = os.path.join(os.path.dirname(__file__), "plan_rescue.db")
 
 def get_connection():
     conn = sqlite3.connect(DB_PATH)
