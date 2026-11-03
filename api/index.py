@@ -17,3 +17,4 @@ try:
     db.init_db()
 except Exception as e:
     print(f"Serverless DB init notice: {e}")
+
